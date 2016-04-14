@@ -14,12 +14,14 @@ import by.pvt.shmouradko.command.enums.ClientType;
 import by.pvt.shmouradko.entities.Person;
 import by.pvt.shmouradko.resource.ConfigurationManager;
 import by.pvt.shmouradko.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shmouradko Sergey
  *
  */
 public class LoginCommand implements ActionCommand {
+	static Logger logger = Logger.getLogger(LoginCommand.class.getName());
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
 	private String pathPageUser = "/jsp/user.jsp";
@@ -68,6 +70,7 @@ public class LoginCommand implements ActionCommand {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("LoginCommand returned: " + page);
 		return page;
 	}
 

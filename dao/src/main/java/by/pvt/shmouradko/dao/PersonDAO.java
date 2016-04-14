@@ -31,6 +31,10 @@ public class PersonDAO extends DAO {
 		return instance;
 	}
 
+	/*
+	*This method adds a new person
+	* @param person - entity of person
+	 */
 	public void register(Person person) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_ADD_PERSON);
@@ -46,6 +50,11 @@ public class PersonDAO extends DAO {
 
 	}
 
+	/*
+	*This method checks person's login
+	* @param login - person's login
+	* @return false if this login is already exsists
+	 */
 	public boolean checkLogin(String login) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_CHECK_LOGIN);

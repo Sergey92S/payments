@@ -14,13 +14,14 @@ import by.pvt.shmouradko.TransactionService;
 import by.pvt.shmouradko.entities.Transaction;
 import by.pvt.shmouradko.resource.ConfigurationManager;
 import by.pvt.shmouradko.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shmouradko Sergey
  *
  */
 public class AddingAccountCommand implements ActionCommand {
-
+	static Logger logger = Logger.getLogger(LoginCommand.class.getName());
 	private static final String PARAM_NAME_USER = "name";
 	private static final String PARAM_SECURITYCODE_USER = "securitycode";
 	private static final String PARAM_SUM_USER = "sum";
@@ -56,6 +57,7 @@ public class AddingAccountCommand implements ActionCommand {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("AddingAccountCommand returned: " + page);
 		return page;
 	}
 

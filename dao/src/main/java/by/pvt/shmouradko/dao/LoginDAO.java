@@ -35,6 +35,11 @@ public class LoginDAO extends DAO {
 		return instance;
 	}
 
+	/*
+	*This method checks person
+	* @param enterLogin - person's login, enterPass - person's password, person - entity of person
+	* @return person with filled fields
+	 */
 	public Person checkPerson(String enterLogin, String enterPass, Person person) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_CHECK_PERSON);

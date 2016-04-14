@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import by.pvt.shmouradko.AccountService;
 import by.pvt.shmouradko.resource.ConfigurationManager;
 import by.pvt.shmouradko.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shmouradko Sergey
  *
  */
 public class UnBlockCommand implements ActionCommand {
-
+	static Logger logger = Logger.getLogger(LoginCommand.class.getName());
 	private static final String PARAM_SECURITYCODE_ADMIN = "securitycode";
 	private String pathPageMain = "/jsp/main.jsp";
 	private String pathPageUnblock = "/jsp/unblock.jsp";
@@ -45,6 +46,7 @@ public class UnBlockCommand implements ActionCommand {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("UnBlockCommand returned: " + page);
 		return page;
 	}
 

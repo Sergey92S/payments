@@ -39,6 +39,10 @@ public class AccountDAO extends DAO {
 		return instance;
 	}
 
+	/*
+	* This method register a new account
+	* @param account - is an entity for account
+	 */
 	public void register(Account account) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_ADD_ACCOUNT);
@@ -52,6 +56,10 @@ public class AccountDAO extends DAO {
 
 	}
 
+	/*
+	*This method returns a list of admins
+	* @return ai - list of admins
+	 */
 	public List<AdminInfo> getValuesForAdmin() throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		String query = SQL_SELECT_ADMIN_ACCOUNT;
@@ -67,6 +75,11 @@ public class AccountDAO extends DAO {
 
 	}
 
+	/*
+	*This method returns a list of users
+	* @param login - user's login
+	* @return ai - list of users
+	 */
 	public List<UserInfo> getValuesForUser(String login) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_SELECT_USER_ACCOUNT);
@@ -83,6 +96,11 @@ public class AccountDAO extends DAO {
 
 	}
 
+	/*
+	*This method checks account by security code
+	* @param securitycode - account's security code
+	* @return true if there is such security code
+	 */
 	public boolean isAccount(int securitycode) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_CHECK_ACCOUNT);
@@ -96,6 +114,10 @@ public class AccountDAO extends DAO {
 		return false;
 	}
 
+	/*
+	*This method changes the status from user to admin
+	* @param securitycode - account's security code
+	 */
 	public void changeStatus(int securitycode) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_UPDATE_STATUS);
@@ -105,6 +127,11 @@ public class AccountDAO extends DAO {
 		ps.executeUpdate();
 	}
 
+	/*
+	*This method returns account's id
+	* @param securitycode - account's security code
+	* @return id - account's id
+	 */
 	public int getAccountId(int securitycode) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_SELECT_ACCOUNT);

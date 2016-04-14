@@ -17,12 +17,14 @@ import by.pvt.shmouradko.entities.Account;
 import by.pvt.shmouradko.entities.CreditCard;
 import by.pvt.shmouradko.resource.ConfigurationManager;
 import by.pvt.shmouradko.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shmouradko Sergey
  *
  */
 public class CreditCardCommand implements ActionCommand {
+	static Logger logger = Logger.getLogger(LoginCommand.class.getName());
 	private static final String PARAM_NAME_CREDITCARD = "name";
 	private static final String PARAM_SECURITYCODE_CREDITCARD = "securitycode";
 	private static final String PARAM_COUNT_ACCOUNT = "count";
@@ -74,6 +76,7 @@ public class CreditCardCommand implements ActionCommand {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("CreditCardCommand returned: " + page);
 		return page;
 	}
 

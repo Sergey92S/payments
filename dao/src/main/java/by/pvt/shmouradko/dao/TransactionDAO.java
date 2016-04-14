@@ -30,6 +30,10 @@ public class TransactionDAO extends DAO {
 		return instance;
 	}
 
+	/*
+	*This method create a new transaction and adding person's count
+	* @param transaction - a new transaction
+	 */
 	public void adding(Transaction transaction) throws SQLException {
 		Connection connection = connectionInstance.getConnection();
 		//String query = sqlManager.getProperty(SqlManager.SQL_INSERT_TRANSACTION);

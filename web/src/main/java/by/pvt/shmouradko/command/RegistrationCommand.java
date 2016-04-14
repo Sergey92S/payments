@@ -18,13 +18,14 @@ import by.pvt.shmouradko.command.enums.ClientType;
 import by.pvt.shmouradko.entities.Person;
 import by.pvt.shmouradko.resource.ConfigurationManager;
 import by.pvt.shmouradko.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shmouradko Sergey
  *
  */
 public class RegistrationCommand implements ActionCommand {
-
+	static Logger logger = Logger.getLogger(LoginCommand.class.getName());
 	private final String PARAM_NAME_PERSON = "name";
 	private final String PARAM_SURNAME_PERSON = "surname";
 	private final String PARAM_LOGIN_PERSON = "loginPerson";
@@ -75,6 +76,7 @@ public class RegistrationCommand implements ActionCommand {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("RegistrationCommand returned: " + page);
 		return page;
 	}
 

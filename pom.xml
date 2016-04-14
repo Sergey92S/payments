@@ -59,6 +59,7 @@
         <artifactId>tomcat-maven-plugin</artifactId>
         <configuration>
           <url>http://localhost:8080/manager/text</url>
+	      <server>tomcatserver</server>
           <username>admin</username>
           <password>admin</password>
           <path>/${project.build.finalName}</path>
@@ -74,7 +75,39 @@
         </executions>
       </plugin>
 
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <formats>
+            <format>html</format>
+            <format>xml</format>
+          </formats>
+          <check/>
+        </configuration>
+        <executions>
+          <execution>
+            <id>site</id>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>cobertura</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
