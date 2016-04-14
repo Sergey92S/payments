@@ -14,7 +14,7 @@ public class AccountServiceTest extends TestCase {
     public void test() throws SQLException {
         AccountService accountService = AccountService.getInstance();
         //assertTrue(accountService.getValuesForAdmin().size() == 0);
-        assertTrue(accountService.getValuesForUser("ivan.ivanov@gmail.com").size() == 1);
+        assertTrue(accountService.getValuesForUser("ivan.ivanov@gmail.com").size() == 2);
         assertEquals(true, accountService.isAccount(1111));
         assertEquals(1, accountService.getAccountId(1111));
     }
