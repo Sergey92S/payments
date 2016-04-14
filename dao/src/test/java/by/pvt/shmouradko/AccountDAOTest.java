@@ -15,7 +15,7 @@ public class AccountDAOTest extends TestCase{
     public void test() throws SQLException {
         AccountDAO accountDAO = AccountDAO.getInstance();
         //assertTrue(accountDAO.getValuesForAdmin().size() == 0);
-        assertTrue(accountDAO.getValuesForUser("ivan.ivanov@gmail.com").size() == 1);
+        assertTrue(accountDAO.getValuesForUser("ivan.ivanov@gmail.com").size() == 2);
         assertEquals(true, accountDAO.isAccount(1111));
         assertEquals(1, accountDAO.getAccountId(1111));
     }
